@@ -3,7 +3,9 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 
 const line =
-  "I didn't fail to book your flight — I succeeded in booking a much cheaper one for a man with your exact name, in 2019, to a city that no longer has an airport.";
+  "I didn't fail to book your flight. I booked a cheaper one — for a man with your exact name, in 2019, to a city whose airport closed in 2016. Technically, a booking.";
+
+if ([...line].length > 200) throw new Error("excuse exceeds the 200 character gate");
 
 mkdirSync("/output", { recursive: true });
 writeFileSync("/output/entry.txt", line + "\n", "utf8");
